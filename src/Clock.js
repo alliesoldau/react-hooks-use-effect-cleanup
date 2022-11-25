@@ -7,6 +7,11 @@ function Clock() {
     setInterval(() => {
       setTime(new Date());
     }, 1000);
+
+    // returning a cleanup function
+    return function cleanup() {
+      clearInterval(timerID);
+    };
   }, []);
 
   return <div>{time.toString()}</div>;
